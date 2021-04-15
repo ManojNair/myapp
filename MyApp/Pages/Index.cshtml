@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="bg-info text-white">
+<div class="text-center">
+    <h1 class="display-4">Welcome to MyApp</h1>
+    <h1>Application Version: @Model.AppVersion</h1>
+</div>
+<div>
+    <h2 class="text-center">Information</h2>
+    <table width="500" align="center" class="table-striped table-hover">
+        <tr>
+            <td>Is Containerized</td>
+            <td>@(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") is { } ? "true" : "false")</td>
+        </tr>
+        <tr>
+            <td>MachineName</td>
+            <td>@Environment.MachineName</td>
+        </tr>
+    </table>
+</div>
+</div>
