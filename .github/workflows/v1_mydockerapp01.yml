@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_37a10397099e45a3bf4c194db946c0db }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_b0bf6715bfdb4f378658cff8c76a60c4 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_ea0135fb43c24cdab9f2f1be6da5fb27 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_f78af8ead1d444a095457701a9877806 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_37a10397099e45a3bf4c194db946c0db }}/manojnair/delmenow:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ea0135fb43c24cdab9f2f1be6da5fb27 }}/delmenow:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'mydockerapp01'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6394fa1935c24735af2eed14ff6abcd2 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_37a10397099e45a3bf4c194db946c0db }}/manojnair/delmenow:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_26223d50783746d2902fbb73df02635d }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ea0135fb43c24cdab9f2f1be6da5fb27 }}/delmenow:${{ github.sha }}'
